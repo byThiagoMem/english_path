@@ -2,14 +2,55 @@ import 'package:flutter/material.dart';
 
 import '../infra.dart';
 
+/// Custom primary button for the application.
+///
+/// A styled FilledButton with rounded borders, icon support,
+/// loading state, and customizable colors.
+///
+/// Usage example:
+/// ```dart
+/// // Basic button
+/// PrimaryButton(
+///   text: 'Continue',
+///   onPressed: () {
+///     // Button action
+///   },
+/// )
+///
+/// // Button with icon and loading state
+/// PrimaryButton(
+///   text: 'Save',
+///   icon: Icons.save,
+///   isLoading: isSaving,
+///   onPressed: () async {
+///     await saveData();
+///   },
+/// )
+/// ```
 class PrimaryButton extends StatelessWidget {
+  /// Text displayed on the button
   final String text;
+
+  /// Callback executed when the button is pressed.
+  /// If null, the button will be disabled
   final VoidCallback? onPressed;
+
+  /// If true, displays a CircularProgressIndicator and disables the button
   final bool isLoading;
+
+  /// Button background color. If null, uses theme's primaryColor
   final Color? backgroundColor;
+
+  /// Text and icon color. Default: Colors.white
   final Color? textColor;
+
+  /// Button width. If null, takes full available width
   final double? width;
+
+  /// Button height. Default: 48
   final double height;
+
+  /// Optional icon displayed to the left of the text
   final IconData? icon;
 
   const PrimaryButton({

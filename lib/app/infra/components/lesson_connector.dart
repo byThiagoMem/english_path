@@ -2,8 +2,25 @@ import 'package:flutter/material.dart';
 
 import '../../domain_layer/domain_layer.dart';
 
+/// Widget that displays a gradient connector line between two lessons.
+///
+/// The gradient color is based on the status of each lesson:
+/// - Green: Completed lesson
+/// - Blue: Current lesson
+/// - Transparent white: Locked lesson
+///
+/// Usage example:
+/// ```dart
+/// LessonConnector(
+///   currentLesson: lesson1,
+///   nextLesson: lesson2,
+/// )
+/// ```
 class LessonConnector extends StatelessWidget {
+  /// The current (top) lesson to be connected
   final LessonEntity currentLesson;
+
+  /// The next (bottom) lesson to be connected
   final LessonEntity nextLesson;
 
   const LessonConnector({

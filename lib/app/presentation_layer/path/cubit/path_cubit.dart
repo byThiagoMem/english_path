@@ -10,12 +10,15 @@ class PathCubit extends Cubit<PathState> {
   final GetPathUseCase _getPathUseCase;
   final SavePathUseCase _savePathUseCase;
   final ResetPathUseCase _resetPathUseCase;
+  final Random _random;
 
   PathCubit(
     this._getPathUseCase,
     this._savePathUseCase,
-    this._resetPathUseCase,
-  ) : super(const PathState());
+    this._resetPathUseCase, {
+    Random? random,
+  })  : _random = random ?? Random(),
+        super(const PathState());
 
   Future<void> loadPath() async {
     emit(state.copyWith(state: LoadPathLoadingState()));
@@ -23,8 +26,7 @@ class PathCubit extends Cubit<PathState> {
     await Future.delayed(const Duration(seconds: 1));
 
     // Simulate a random failure for demonstration purposes
-    final random = Random();
-    if (random.nextInt(100) < 30) {
+    if (_random.nextInt(100) < 30) {
       emit(
         state.copyWith(
           state: LoadPathFailureState(

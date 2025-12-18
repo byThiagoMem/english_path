@@ -1,10 +1,34 @@
 import 'package:flutter/material.dart';
 
 import '../../domain_layer/domain_layer.dart';
-import '../core/theme/text_styles/app_text_styles.dart';
+import '../core/core.dart';
 
+/// Widget that represents a lesson node in the learning path map.
+///
+/// Displays lesson information (title, XP, estimated time)
+/// with colors and icons
+/// based on status. Lessons with 'current' status have a pulse animation.
+///
+/// Colors by status:
+/// - Green: Completed lesson
+/// - Blue: Current lesson (with animation)
+/// - Gray: Locked lesson
+///
+/// Usage example:
+/// ```dart
+/// LessonNode(
+///   lesson: lessonEntity,
+///   onTap: () {
+///     // Navigate to lesson screen
+///     Navigator.push(...);
+///   },
+/// )
+/// ```
 class LessonNode extends StatefulWidget {
+  /// The lesson entity with all information (title, status, XP, etc.)
   final LessonEntity lesson;
+
+  /// Callback executed when user taps on the lesson node
   final VoidCallback onTap;
 
   const LessonNode({
