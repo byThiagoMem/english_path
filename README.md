@@ -2,7 +2,14 @@
 
 Uma aplicação Flutter demonstrando uma trilha de aprendizado de idiomas com lições e tarefas, construída com Clean Architecture e padrão BLoC.
 
-## 📱 Funcionalidades
+## � Screenshots
+
+<div align="center">
+  <img src="screenshots/splash.png" alt="Tela de Splash" width="300"/>
+  <img src="screenshots/path.png" alt="Trilha de Aprendizado" width="300"/>
+</div>
+
+## �📱 Funcionalidades
 
 - Visualização interativa da trilha de aprendizado
 - Rastreamento de progresso das lições
@@ -141,6 +148,22 @@ Utiliza SharedPreferences para:
 - Cache de dados da trilha
 - Persistência do progresso do usuário
 - Experiência offline-first
+
+### Simulação de Erros
+
+O projeto inclui uma **simulação de erros aleatórios** no `PathCubit` para demonstrar tratamento robusto de falhas.
+
+**Implementação:**
+- Usa um gerador `Random` injetável via construtor
+- ~30% de chance de simular um erro ao carregar dados
+- Completamente testável com `FakeRandom` nos testes
+
+**Por que isso?**
+- Demonstra tratamento de erros em condições adversas
+- Valida que a UI responde corretamente a falhas
+- Permite testar fluxos de erro de forma determinística
+
+> **Nota**: Em produção, essa simulação seria removida e substituída por tratamento real de erros de rede/API.
 
 ### Estratégia de Testes
 
