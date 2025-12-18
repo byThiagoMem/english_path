@@ -90,8 +90,6 @@ BLoC foi escolhido por sua:
 - **Escalabilidade**: Padrão comprovado para aplicações de grande escala
 - **Comunidade**: Forte ecossistema e documentação
 
-O projeto usa **Cubit** (BLoC simplificado) pois a complexidade do estado não requer o tratamento completo de eventos do BLoC.
-
 ## 📂 Estrutura do Projeto
 
 ```
